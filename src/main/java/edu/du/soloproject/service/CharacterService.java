@@ -1,5 +1,5 @@
 package edu.du.soloproject.service;
-
+import edu.du.soloproject.model.Character;
 import edu.du.soloproject.mapper.CharacterRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,7 @@ public class CharacterService {
     }
 
     public List<Character> getAllCharacters() {
+
         return characterRepository.getAllCharacters();
     }
 

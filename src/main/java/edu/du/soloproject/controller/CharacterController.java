@@ -1,5 +1,5 @@
 package edu.du.soloproject.controller;
-
+import edu.du.soloproject.model.Character;
 import edu.du.soloproject.service.CharacterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +21,10 @@ public class CharacterController {
     public String listCharacters(Model model) {
         List<Character> characters = characterService.getAllCharacters();
         model.addAttribute("characters", characters);
+        // 디버깅 출력
+        for (Character c : characters) {
+            System.out.println("캐릭터: " + c.getName() + ", 이미지 경로: " + c.getImageUrl());
+        }
         return "characters";
     }
 

@@ -66,9 +66,7 @@ public class Character {
         this.imageUrl = imageUrl;
     }
 
-    public Character() {
 
-    }
 
 
 }

@@ -3,7 +3,7 @@ package edu.du.soloproject.model;
 import java.sql.Timestamp;
 import org.apache.ibatis.type.Alias;
 
-@Alias("Post")
+//@Alias("Post")
 public class Post {
     private int id;
     private String title;

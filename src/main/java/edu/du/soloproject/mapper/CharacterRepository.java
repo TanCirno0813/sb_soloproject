@@ -1,5 +1,5 @@
 package edu.du.soloproject.mapper;
-
+import edu.du.soloproject.model.Character;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
