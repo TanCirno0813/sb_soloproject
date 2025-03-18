@@ -67,6 +67,26 @@
                 <li class="nav-item"><a class="nav-link" href="/posts">공략 게시판</a></li>
 
             </ul>
+            <ul class="navbar-nav">
+                <c:choose>
+                    <c:when test="${empty sessionScope.loginMember}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">로그인</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signup">회원가입</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <span class="nav-link">${sessionScope.loginMember}님 환영합니다</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">로그아웃</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
             <div class="ms-auto">
                 <a href="https://store.steampowered.com/app/1049590" class="btn btn-primary" target="_blank">지금 플레이하기</a>
             </div>
@@ -74,4 +94,4 @@
     </div>
 </nav>
 
-<div class="main-content"/>
+<div class="main-content">

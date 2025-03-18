@@ -57,10 +57,12 @@
                 <label for="description" class="form-label">캐릭터 설명</label>
                 <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
             </div>
-            
+
             <div class="mb-3">
-                <label for="imageFile" class="form-label">캐릭터 이미지 (122x160 권장)</label>
-                <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required>
+                <label for="imageUrl" class="form-label">캐릭터 이미지 URL</label>
+                <input type="text" class="form-control" id="imageUrl" name="imageUrl" required 
+                       placeholder="https://example.com/image.jpg">
+                <small class="form-text text-muted">이미지의 URL을 입력해주세요 (122x160 권장)</small>
                 <img id="imagePreview" class="form-preview-image mt-2" style="display: none;">
             </div>
             
@@ -73,18 +75,16 @@
 </div>
 
 <script>
-    // 이미지 미리보기 기능
-    document.getElementById('imageFile').addEventListener('change', function(e) {
+    // 이미지 URL 미리보기 기능
+    document.getElementById('imageUrl').addEventListener('change', function(e) {
         const preview = document.getElementById('imagePreview');
-        const file = e.target.files[0];
+        const imageUrl = this.value;
         
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-            reader.readAsDataURL(file);
+        if (imageUrl) {
+            preview.src = imageUrl;
+            preview.style.display = 'block';
+        } else {
+            preview.style.display = 'none';
         }
     });
 </script>

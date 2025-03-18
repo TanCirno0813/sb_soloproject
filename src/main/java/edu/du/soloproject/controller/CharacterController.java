@@ -21,14 +21,17 @@ public class CharacterController {
     public String listCharacters(Model model) {
         List<Character> characters = characterService.getAllCharacters();
         model.addAttribute("characters", characters);
-        // 디버깅 출력
-        for (Character c : characters) {
-            System.out.println("캐릭터: " + c.getName() + ", 이미지 경로: " + c.getImageUrl());
-        }
+
         return "characters";
     }
 
-    // 캐릭터 추가
+    // 캐릭터 추가 폼 표시
+    @GetMapping("/add")
+    public String showAddForm() {
+        return "addCharacter";
+    }
+
+    // 캐릭터 추가 처리
     @PostMapping("/add")
     public String addCharacter(@ModelAttribute Character character) {
         characterService.addCharacter(character);

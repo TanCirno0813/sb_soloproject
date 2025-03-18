@@ -1,12 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko_KR" data-locale="ko_KR">
 <head>
     <title>이터널 리턴</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Eternal Return 무료로 플레이하기! 이터널 리턴은 쿼터뷰 형식의 전투스타일과 배틀로얄, 그리고 독특한 크래프팅 시스템이 합쳐진 신감각 서바이벌게임입니다.">
-    <meta name="keywords" content="ERBS, ER, 이터널 리턴, 블랙서바이벌, 카카오 게임, 스팀, Steam"/>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -88,6 +86,26 @@
                 <li class="nav-item"><a class="nav-link" href="/posts">공략 게시판</a></li>
 
             </ul>
+            <ul class="navbar-nav">
+                <c:choose>
+                    <c:when test="${empty sessionScope.loginMember}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">로그인</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signup">회원가입</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <span class="nav-link">${sessionScope.loginMember}님 환영합니다</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">로그아웃</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
             <div class="ms-auto">
                 <a href="https://store.steampowered.com/app/1049590" class="btn btn-primary" target="_blank">지금 플레이하기</a>
             </div>
@@ -162,14 +180,12 @@
 <footer class="footer text-center">
     <div class="container">
         <img src="https://cdn.playeternalreturn.com/images/logo/logo-nimbleneuron.png" alt="Nimble Neuron" class="mb-4" height="30">
-        <p class="mb-3">KDT 교육과정 이태하 포트폴리오 </p>
+        <p class="mb-3">KDT 교육과정 이태하 포트폴리오</p>
         <p class="mb-3">본 웹페이지는 공식 페이지가 아니며, 모든 게임의 저작권 및 관련 지식재산권은 (주)님블뉴런(이하 “회사”)에 있습니다.</p>
         <p class="mb-3">COPYRIGHT ©2020 NIMBLE NEURON CORPORATION. ALL RIGHTS RESERVED.</p>
         <p class="small">PARTNERSHIP INQUIRIES: <a href="mailto:eternalreturn@nimbleneuron.com" class="text-white">eternalreturn@nimbleneuron.com</a></p>
 
     </div>
 </footer>
-
-
 </body>
 </html>

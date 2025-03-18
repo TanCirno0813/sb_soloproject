@@ -1,19 +1,23 @@
 package edu.du.soloproject.model;
 
 public class Character {
-    private int id;
+    private Integer id;
     private String name;
     private String role;
     private String difficulty;
     private String description;
-    private String imageUrl;
+    private String imageUrl;  // DB의 image_url 컬럼과 매핑
 
+    // 기본 생성자
+    public Character() {
+    }
 
-    public int getId() {
+    // Getter와 Setter
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -57,8 +61,8 @@ public class Character {
         this.imageUrl = imageUrl;
     }
 
-    public Character(int id, String name, String role, String difficulty, String description, String imageUrl) {
-        this.id = id;
+    // 생성자
+    public Character(String name, String role, String difficulty, String description, String imageUrl) {
         this.name = name;
         this.role = role;
         this.difficulty = difficulty;
@@ -66,7 +70,12 @@ public class Character {
         this.imageUrl = imageUrl;
     }
 
-
-
-
+    public Character(Integer id, String name, String role, String difficulty, String description, String imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.role = role;
+        this.difficulty = difficulty;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
 }

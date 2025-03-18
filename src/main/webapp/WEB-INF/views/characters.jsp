@@ -151,12 +151,13 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <c:if test="${isAdmin}">
+                                    <p>
                                         <form action="/characters/delete" method="post" style="display:inline;">
                                             <input type="hidden" name="id" value="${character.id}">
                                             <button class="btn btn-danger">삭제</button>
                                         </form>
-                                    </c:if>
+                                    </p>
+
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                                 </div>
                             </div>
